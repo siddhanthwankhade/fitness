@@ -4,6 +4,8 @@ import formatCurrency  from './util/money.js';
 import dayjs from 'https://unpkg.com/dayjs@1.11.10/esm/index.js';
 import {deliveryOptions} from '../data/deliverOption.js';
 
+function renderOrderSummary(){
+
 
 let cartSummaryHTML = '';
 
@@ -134,6 +136,10 @@ document.querySelectorAll('.js-delivery-option').forEach((element)=>{
   element.addEventListener('click',()=>{
     const {productId,deliveryOptionId}  = element.dataset;
     updateDeliveryOption(productId, deliveryOptionId);
-
+    renderOrderSummary();
   });
 });
+};
+
+
+renderOrderSummary();
